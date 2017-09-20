@@ -1,0 +1,9 @@
+１．首先创建一个继承SQLiteOpenHelper类，重写onCreate和onUpgrade方法
+２．在oncreate方法进行数据表的初始化创建
+
+
+去重使用group by或者disticut
+
+多表查询技术药店：
+１．join进行多表关联
+２．

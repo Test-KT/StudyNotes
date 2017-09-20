@@ -1,0 +1,29 @@
+饿汉模式（空间换时间，且线程安全）：
+    privite static A a=new A()
+懒汉模式（时间换空间，线程不安全）：
+    privite static A a=null;
+    public static A getA(){
+        //如果要线程安全就进行double check
+        if(a==null){
+            synchronized(A.class){
+                if(a==null){
+                     a=new A();
+                }
+            }
+        }
+        return a;
+    }
+
+内部类形式的单例模式（在使用的时候才会装载，实现延迟加载,且线程安全）
+
+public class A{
+    privite static class AHolder{
+        privite static final A a=new A();
+    }
+    privite A(){
+
+    }
+    public static A getA(){
+        return AHolder.a;
+    }
+}
