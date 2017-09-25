@@ -1,0 +1,13 @@
+通过进行网络ｐｉｎｇ判断当前网络是否可用
+        String ip = "www.baidu.com";
+        Process process = Runtime.getRuntime().exec("ping -c 3 -w 100 " + ip);
+        InputStream inputStream = process.getInputStream();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuffer stringBuffer = new StringBuffer();
+        String content = "";
+        while ((content = bufferedReader.readLine()) != null) {
+            stringBuffer.append(content);
+        }
+        System.out.println(stringBuffer.toString());
+        int state = process.waitFor();
+        System.out.println("state:" + state);
